@@ -79,14 +79,24 @@ app.get('/', (req, res) => {
   res.send('Welcome to my movie club!');
 });
 
+//get documentation
+app.get("/documentation", (req, res) => {
+  res.sendFile("public/documentation.html", { root: __dirname });
+});
 
 // Gets the data about a single movie, by title
 
 app.get('/movies/:title', (req, res) => {
-  res.json(movies.find((student) =>
+  res.json(movies.find((movie) =>
     { return movie.title === req.params.title }));
 });
 
+//Return data about a genre (description) by name/title
+
+app.get('/movies/genre/:genreName', (req, res) => {
+  res.json(movies.find((movie) =>
+    { return movie.genreName === req.params.genreName }));
+});
 
 
 //error
