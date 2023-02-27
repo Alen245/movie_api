@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation</title>
+</head>
+<body>
+    <table class="table">
+        <thead>
+          <tr>
+              <th>Business Logic</th>
+              <th>URL</th>
+              <th>HTTP Method</th>
+              <th>Request Body Data Format</th>
+              <th>Response Body Data Format</th>
+          </tr>
+        </thead>
+      
+       <tbody>   
+        <tr>
+            <td>Return a list of ALL movies to the user</td>
+            <td>/movies</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>A JSON object holding data about all the movies</td>
+        </tr>
+      
+        <tr>
+          <td>Return data (description, genre, director, image URL, whether featured or not) about a single movie by title to the user;</td>
+          <td>/movies/:title</td>
+          <td>GET</td>
+          <td>None</td>
+          <td>A JSON object holding data about a single movie</td>
+        </tr>
+
+        <tr>
+            <td>Return data about a genre (description) by name/title</td>
+            <td>/movies/genre/:genreName</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>A JSON object holding data about a specific genre of movie</td>
+          </tr>
+        
+          <tr>
+            <td>Returns data about a director by name</td>
+            <td>/movies/directors/:directorName</td>
+            <td>GET</td>
+            <td>None</td>
+            <td>A JSON object holding data about a specific director</td>
+          </tr>
+   
+        <tr>
+          <td>Allows new users to register</td>
+          <td>/users</td>
+          <td>POST</td>
+          <td>A JSON object holding data about the user to add, structured like:
+            {"Username" : "String", "Password": "String", "Email": "String"}
+          </td>
+          <td>A JSON object holding data about the user that was added, structured like this:
+            {"username: "Test", "Password": "Test", "Email": "Test" } 
+          </td>
+        </tr>
+      
+        <tr>
+          <td>Allow users to update their user info (username)</td>
+          <td>/users/:Username</td>
+          <td>PUT</td>
+          <td>None</td>
+          <td>A JSON object holding data about the updated user information</td>
+        </tr>
+      
+        <tr>
+          <td>Allow users to add a movie to their list of favorites </td>
+          <td>/users/:Username/movies/:MovieID</td>
+          <td>POST</td>
+          <td>None</td>
+          <td>A JSON object holding data about the user and the movie that was added</td>
+        </tr>
+      
+        <tr>
+          <td>Allow users to remove a movie from their list of favorites</td>
+          <td>/users/:Username/movies/:MovieID</td>
+          <td>DELETE</td>
+          <td>None</td>
+          <td>A JSON object holding data about the user and the movie that was removed</td>
+        </tr>
+      
+        <tr>
+          <td>Allows existing users to deregister</td>
+          <td>/users/:Username</td>
+          <td>DELETE</td>
+          <td>None</td>
+          <td>A text message indicating whether the user has successfully deregistered</td>
+        </tr>
+       </tbody>
+       </table>
+
+
+</body>
+
+</html>

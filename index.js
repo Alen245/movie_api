@@ -1,62 +1,70 @@
 //set up express into variable app
 const express = require('express'),
-  morgan = require('morgan');
+  app = express(),
+  bodyParser = require('body-parser'),
+  path = require('path');
+  const morgan = require('morgan');
 
-const app = express();
 
-app.use(morgan('common'));
+  app.use(bodyParser.json());
 
 //use express.static
 app.use(express.static('public'));
 
+//use common preset
+app.use(morgan('common'));
+
+
+
+
 // list of top books
 let topMovies = [
   {
-    title: '',
-    director: ''
+    title: 'The Shawshank Redemption',
+    year: '1994'
   },
   {
-    title: '',
-    director: ''
+    title: 'The Godfather',
+    year: '1972'
   },
   {
-    title: '',
-    director: ''
+    title: 'The Dark Knight',
+    year: '2008'
   }
   ,
   {
-    title: '',
-    director: ''
+    title: 'The Godfather Part II',
+    year: '1974'
   }
   ,
   {
-    title: '',
-    director: ''
+    title: '12 Angry Men',
+    year: '1957'
   }
   ,
   {
-    title: '',
-    director: ''
+    title: 'Schindler\'s List',
+    year: '1993'
   }
   ,
   {
-    title: '',
-    director: ''
+    title: 'The Lord of The Rings: The Return of the King',
+    year: '2003'
   }
   ,
   {
-    title: '',
-    director: ''
+    title: 'Pulp Fiction',
+    year: '1994'
   }
   ,
   {
-    title: '',
-    director: ''
+    title: 'The Lord of the Rings: The Fellowship of the Ring',
+    year: '2001'
   }
   ,
   {
-    title: '',
-    director: ''
+    title: 'The Good, the Bad and the Ugly',
+    year: '1966'
   }
 ];
 
@@ -70,6 +78,16 @@ app.get('/movies', (req, res) => {
 app.get('/', (req, res) => {
   res.send('Welcome to my movie club!');
 });
+
+
+// Gets the data about a single movie, by title
+
+app.get('/movies/:title', (req, res) => {
+  res.json(movies.find((student) =>
+    { return movie.title === req.params.title }));
+});
+
+
 
 //error
 app.use((err, req, res, next) => {
