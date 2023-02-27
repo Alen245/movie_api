@@ -18,7 +18,7 @@ app.use(morgan('common'));
 
 
 // list of top books
-let topMovies = [
+let movies = [
   {
     title: 'The Shawshank Redemption',
     year: '1994'
@@ -69,7 +69,7 @@ let topMovies = [
 ];
 
 
-//listens to http request and sends list of books
+//listens to http request and sends list of movies
 app.get('/movies', (req, res) => {
   res.json(topMovies);
 });
@@ -97,6 +97,61 @@ app.get('/movies/genre/:genreName', (req, res) => {
   res.json(movies.find((movie) =>
     { return movie.genreName === req.params.genreName }));
 });
+
+//Returns data about a director by name
+app.get('/movies/directors/:directorName', (req, res) => {
+  res.json(movies.find((movie) =>
+    { return movie.directorName === req.params.directorName }));
+});
+
+//Allows new users to register
+app.post('/users', (req, res) => {
+  let newUser = req.body;
+
+  if (!newUser.name) {
+    const message = 'Missing name in request body';
+    res.status(400).send(message);
+  } else {
+    newUser.id = uuid.v4();
+    users.push(newUser);
+    res.status(201).send(newUser);
+  }
+});
+
+//Allow users to update their user info (username)
+app.put('/users/:Username',(req, res) => {
+  res.send("PUT Request Called")});
+
+//Allow users to add a movie to their list of favorites
+app.post('/users/:Username/movies/:MovieID', (req, res) => {
+  let newMovie = req.body;
+
+  if (!newMovie.name) {
+    const message = 'Missing name in request body';
+    res.status(400).send(message);
+  } else {
+    newMovie.id = uuid.v4();
+    movies.push(newMovie);
+    res.status(201).send(newMovie);
+  }
+});
+
+//Allow users to remove a movie from their list of favorites
+app.delete('/users/:Username/movies/:MovieID	', (req, res) => {
+  res.send("Movie was removed")
+});
+
+
+// Deletes a user by ID
+app.delete('/users/:Username', (req, res) => {
+  let user = users.find((user) => { return user.id === req.params.id });
+
+  if (user) {
+    users = users.filter((obj) => { return obj.id !== req.params.id });
+    res.status(201).send('User ' + req.params.id + ' was deleted.');
+  }
+});
+
 
 
 //error
