@@ -72,7 +72,7 @@
       
         <tr>
           <td>Allow users to add a movie to their list of favorites </td>
-          <td>/users/:Username/movies/:MovieID</td>
+          <td>/users/:id/:favoriteMovies</td>
           <td>POST</td>
           <td>None</td>
           <td>A JSON object holding data about the user and the movie that was added</td>
@@ -80,7 +80,7 @@
       
         <tr>
           <td>Allow users to remove a movie from their list of favorites</td>
-          <td>/users/:Username/movies/:MovieID</td>
+          <td>/users/:id/:favoriteMovies</td>
           <td>DELETE</td>
           <td>None</td>
           <td>A JSON object holding data about the user and the movie that was removed</td>
@@ -88,7 +88,7 @@
       
         <tr>
           <td>Allows existing users to deregister</td>
-          <td>/users/:Username</td>
+          <td>/users/:id</td>
           <td>DELETE</td>
           <td>None</td>
           <td>A text message indicating whether the user has successfully deregistered</td>
