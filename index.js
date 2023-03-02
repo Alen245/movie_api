@@ -41,7 +41,8 @@ let topMovies = [
     title: 'The_Shawshank_Redemption',
     year: '1994',
     director: 'Frank_Darabont',
-    genre: 'Drama'
+    genre:'Drama',
+   
   },
   {
     title: 'The_Godfather',
@@ -139,22 +140,62 @@ app.get('/movies/:title', (req, res)=> {
 app.get('/movies/genre/:genreName', (req, res) => {
   const {genreName}=req.params;
   const genre=topMovies.find(movie=>movie.genre === genreName).genre; 
-  if(genre){
-      res.status(201).json(genre);
-  }else{
-      res.status(400).send('no genre found');
-  }
+switch (genre) {
+  case "Drama":
+ res.send("Drama: A genre that focuses on realistic characters, situations, and emotions. Dramas often deal with serious themes and explore human relationships, conflicts, and experiences. They may feature strong performances from actors and tend to have a more serious tone than other genres.")
+  break;
+    case "Crime":
+ res.send("Crime: A genre that explores criminal activity, usually through the eyes of law enforcement officials or criminals themselves. Crime films may involve heists, murders, or other illegal activities, and often include suspenseful or action-packed scenes. They may also focus on the ethical dilemmas faced by law enforcement officials or the criminals themselves.")
+  break;
+    case "Biography":
+ res.send("Biography: A genre that portrays the life story of a real person, often a historical figure or a public figure. Biographical films may explore their subject's personal life, achievements, and struggles, and may include significant events or moments from their life. They often incorporate archival footage or photos and may feature a strong central performance.")
+  break;
+    case "Action":
+ res.send("Action: A genre that typically features fast-paced, high-energy scenes of physical activity or combat. Action films may include stunts, car chases, or martial arts fights, and often have a high degree of visual effects and/or special effects. They may also incorporate elements of other genres, such as science fiction or adventure.")
+  break;
+    case "Adventure":
+ res.send("Adventure: A genre that typically features a journey or quest, often involving a heroic protagonist who faces challenges or obstacles along the way. Adventure films may take place in exotic or fantastical settings, and often involve elements of danger, suspense, or exploration. They may also incorporate elements of other genres, such as action or fantasy.")
+  break;
+  default:
+  res.status(400).send("Genre does not exist.")
+}
 });
+
+
+
+
+
 
 //Returns data about a director by name
 app.get('/movies/director/:directorName',(req,res)=>{
   const{directorName} =req.params;
   const director =topMovies.find(movie=> movie.director===directorName).director;
-  if (director){
-      res.status(201).json(director);
-  }else{
-      res.status(400).send('no director found');
-  }
+ switch(director) {
+  case "Frank_Darabont":
+    res.send("A director known for his adaptations of Stephen King's novels, including 'The Shawshank Redemption' and 'The Green Mile.' He is also known for his work on the TV series 'The Walking Dead' and 'The Pacific.'")
+    break;
+     case "Francis_Ford_Coppola":
+    res.send("A director and producer known for his work on classics such as 'The Godfather' trilogy and 'Apocalypse Now.' He is also known for his work in the independent film industry and for founding the production company Zoetrope Studios.")
+    break;
+     case "Christopher_Nolan":
+    res.send("A director known for his complex narratives and visual style in films such as 'Inception,' 'The Dark Knight' trilogy, and 'Interstellar.' He is also known for his use of practical effects and non-linear storytelling.")
+    break;
+     case "Sidney_Lumet":
+    res.send("A director known for his ability to elicit strong performances from actors in films such as '12 Angry Men,' 'Dog Day Afternoon,' and 'Network.' He is also known for his realistic portrayal of social issues and his use of multiple cameras to capture performances.")
+    break;
+     case "Steven_Spielberg":
+    res.send("A director known for his blockbuster films such as 'Jaws,' 'E.T. the Extra-Terrestrial,' and 'Jurassic Park.' He is also known for his work on more serious dramas such as 'Schindler's List' and 'Saving Private Ryan.'")
+    break;
+     case "Peter_Jackson":
+    res.send("A director known for his adaptations of J.R.R. Tolkien's 'The Lord of the Rings' trilogy and 'The Hobbit' trilogy. He is also known for his use of special effects and his work on films such as 'King Kong' and 'Heavenly Creatures.'")
+    break;
+     case "Quentin_Tarantino":
+    res.send("A director known for his nonlinear storytelling, witty dialogue, and use of violence in films such as 'Pulp Fiction,' 'Kill Bill,' and 'Django Unchained.' He is also known for his love of genre films and his eclectic musical choices.")
+    break;
+     case "Sergio_Leone":
+    res.send("An Italian director known for his iconic Spaghetti Westerns such as 'The Good, the Bad and the Ugly' and 'Once Upon a Time in the West.' He is also known for his use of close-ups and extreme long shots to convey emotion and his collaborations with composer Ennio Morricone.")
+    break;
+ }
 });
 
 //Allows new users to register
