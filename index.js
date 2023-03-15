@@ -1,39 +1,34 @@
-//set up express into variable app
-const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
+
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 const uuid = require("uuid");
 const morgan = require("morgan");
+app.use(morgan('common'));
+
 const fs = require("fs");
 const path = require("path");
-const mongoose = require('mongoose');
-const Models = require('./models.js');
 
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/my_flix', { useNewUrlParser: true, useUnifiedTopology: true });
+
+const Models = require('./models.js');
 const Movies = Models.Movie;
 const Users = Models.User;
 
+const passport = require('passport');
+require('./passport');
+const auth = require('./auth')(app);
 
-
+app.use(express.static('public'));
 
 //sends introduction
 app.get('/', (req, res) => {
   res.send('Welcome to my movie club!');
 });
-
-//use express.static
-app.use(express.static('public'));
-
-//use common preset
-app.use(morgan('common'));
-
-  app.use(bodyParser.json());
-
-  app.use(bodyParser.urlencoded({ extended: true }));
-  let auth = require('./auth')(app);
-  const passport = require('passport');
-  require('./passport');
-
-  mongoose.connect('mongodb://localhost:27017/my_flix', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Get all users
 app.get('/users',passport.authenticate('jwt', { session: false }), (req, res) => {
