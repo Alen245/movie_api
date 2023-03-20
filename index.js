@@ -1,29 +1,38 @@
+// Import and initialize Express
 const express = require("express");
 const app = express();
 
+// Import and use bodyParser middleware for parsing request bodies
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const uuid = require("uuid");
+// Import and use morgan middleware for logging HTTP requests
 const morgan = require("morgan");
 app.use(morgan('common'));
+const uuid = require("uuid");
 
-const fs = require("fs");
-const path = require("path");
-
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/my_flix', { useNewUrlParser: true, useUnifiedTopology: true });
-
-const Models = require('./models.js');
-const Movies = Models.Movie;
-const Users = Models.User;
-
+// Import and use passport middleware for authentication
 const passport = require('passport');
 require('./passport');
 const auth = require('./auth')(app);
 
+// Import and use static middleware for serving static files
 app.use(express.static('public'));
+
+// Import and connect to MongoDB using Mongoose
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/my_flix', { useNewUrlParser: true, useUnifiedTopology: true });
+
+// Import models for Movies and Users
+const Models = require('./models.js');
+const Movies = Models.Movie;
+const Users = Models.User;
+
+// Import and use fs and path modules for working with files
+const fs = require("fs");
+const path = require("path");
+
 
 //sends introduction
 app.get('/', (req, res) => {
