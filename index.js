@@ -2,6 +2,9 @@
 const express = require("express");
 const app = express();
 
+//Import express-validator
+const { check, validationResult } = require('express-validator');
+
 // Import and use bodyParser middleware for parsing request bodies
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
