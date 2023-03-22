@@ -40,7 +40,11 @@ app.use(express.static('public'));
 
 // Import and connect to MongoDB using Mongoose
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/my_flix', { useNewUrlParser: true, useUnifiedTopology: true });
+
+
+mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+//mongoose.connect('mongodb://localhost:27017/my_flix', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Import models for Movies and Users
 const Models = require('./models.js');
@@ -268,3 +272,16 @@ const port = process.env.PORT || 8080;
 app.listen(port, '0.0.0.0',() => {
  console.log('Listening on Port ' + port);
 });
+
+
+
+
+
+
+//MongoDB connection
+
+/*
+mongoimport --uri mongodb+srv://akiyanovski24:Itay02042007h@moviepi24.v2rrasv.mongodb.net/myFlixDB --collection movies --type json --file /alenkiyanovski
+
+mongosh "mongodb+srv://moviepi24.v2rrasv.mongodb.net/my_flix" --apiVersion 1 --username akiyanovski24
+*/
