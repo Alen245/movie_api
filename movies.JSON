@@ -1,59 +1,6 @@
 
-var movie1 = {
-  "Title": "The Shawshank Redemption",
-  "Description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-  "Genre": {
-  "Name": "Drama",
-  "Description": "A serious presentation of life or human situations that can be either fictional or based on real-life events"
-  },
-  "Director": {
-  "Name": "Frank Darabont",
-  "Bio": "Frank Darabont is a Hungarian-American film director, screenwriter, and producer. He has been nominated for three Academy Awards and a Golden Globe Award for his work in the film industry.",
-  "Birth": "January 28, 1959",
-  "Death": ""
-  },
-  "ImagePath": "https://m.media-amazon.com/images/I/51S4-izC4-L._AC_.jpg",
-  "Featured": true
-  }
-  
 
-  var movie2 = {
-  "Title": "The Godfather",
-  "Description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
-  "Genre": {
-  "Name": "Crime",
-  "Description": "A genre of film that focuses on the lives of criminals, usually gangsters, or members of organized crime syndicates."
-  },
-  "Director": {
-  "Name": "Francis Ford Coppola",
-  "Bio": "Francis Ford Coppola is an American film director, producer, and screenwriter. He is widely regarded as one of the greatest filmmakers in cinema history.",
-  "Birth": "April 7, 1939",
-  "Death": ""
-  },
-  "ImagePath": "https://m.media-amazon.com/images/I/71f7VYDyinL._AC_SY741_.jpg",
-  "Featured": true
-  }
-  
-
-  var movie3 = {
-  "Title": "The Godfather: Part II",
-  "Description": "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.",
-  "Genre": {
-  "Name": "Crime",
-  "Description": "A genre of film that focuses on the lives of criminals, usually gangsters, or members of organized crime syndicates."
-  },
-  "Director": {
-  "Name": "Francis Ford Coppola",
-  "Bio": "Francis Ford Coppola is an American film director, producer, and screenwriter. He is widely regarded as one of the greatest filmmakers in cinema history.",
-  "Birth": "April 7, 1939",
-  "Death": ""
-  },
-  "ImagePath": "https://m.media-amazon.com/images/I/61A8VqXQJvL._AC_SY741_.jpg",
-  "Featured": true
-  }
-
-  
-  var movie4 = {
+{
 "Title": "The Dark Knight",
 "Description": "When the menace known as The Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
 "Genre": {
@@ -70,8 +17,8 @@ var movie1 = {
 "Featured": true
 }
 
-
-var movie5 = {
+,
+ {
   "Title": "Fight Club",
   "Description": "An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.",
   "Genre": {
@@ -88,9 +35,9 @@ var movie5 = {
   "Featured": false
 }
 
+,
 
-
-var movie6 = {
+{
 "Title": "Inception",
 "Description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.",
 "Genre": {
@@ -106,9 +53,9 @@ var movie6 = {
 "ImagePath": "inception.jpg",
 "Featured": true
 }
+,
 
-
-var movie7 = {
+{
 "Title": "The Lord of the Rings: The Return of the King",
 "Description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
 "Genre": {
@@ -125,8 +72,8 @@ var movie7 = {
 "Featured": true
 }
 
-
-var movie8 = {
+,
+{
 "Title": "Pulp Fiction",
 "Description": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
 "Genre": {
@@ -142,9 +89,9 @@ var movie8 = {
 "ImagePath": "https://m.media-amazon.com/images/I/51v5ZpFyaFL._AC_SY741_.jpg",
 "Featured": true
 }
+,
 
-
-var movie9 = {
+{
 "Title": "Forrest Gump",
 "Description": "The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other historical events unfold through the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.",
 "Genre": {
@@ -160,9 +107,9 @@ var movie9 = {
 "ImagePath": "forrest_gump.jpg",
 "Featured": true
 }
+,
 
-
-var movie10 = {
+{
 "Title": "The Lord of the Rings: The Fellowship of the Ring",
 "Description": "A meek hobbit of the Shire and eight companions set out on a journey to Mount Doom to destroy the One Ring and the dark lord Sauron.",
 "Genre": {
@@ -180,228 +127,3 @@ var movie10 = {
 }
 
 
-//   [
-//   {
-//     _id: ObjectId("6408e54677196723b815d03c"),
-//     Username: 'johnsmith22',
-//     Password: 'p4ssw0rd',
-//     Email: 'johnsmith22@example.com',
-//     Birthday: '05/15/1988',
-//     FavoriteMovies: []
-//   },
-//   {
-//     _id: ObjectId("6408e54977196723b815d03d"),
-//     Username: 'jennywilson99',
-//     Password: 'ilovecats',
-//     Email: 'jennywilson99@example.com',
-//     Birthday: '02/27/1995',
-//     FavoriteMovies: []
-//   },
-//   {
-//     _id: ObjectId("6408e54b77196723b815d03e"),
-//     Username: 'michaelbrown123',
-//     Password: 'goblue',
-//     Email: 'michaelbrown123@example.com',
-//     Birthday: '10/01/1980',
-//     FavoriteMovies: []
-//   },
-//   {
-//     _id: ObjectId("6408e54e77196723b815d03f"),
-//     Username: 'emilynguyen',
-//     Password: 'password123',
-//     Email: 'emilynguyen@example.com',
-//     Birthday: '06/22/1992',
-//     FavoriteMovies: []
-//   },
-//   {
-//     _id: ObjectId("6408e55077196723b815d040"),
-//     Username: 'johndoe',
-//     Password: 'secret',
-//     Email: 'johndoe@example.com',
-//     Birthday: '12/31/1975',
-//     FavoriteMovies: []
-//   },
-//   {
-//     _id: ObjectId("6409e2e3a0e9982f7d3ff989"),
-//     Username: 'jakeJake',
-//     Password: 'jake123',
-//     Email: 'jake123@gmail.com',
-//     Birthday: ISODate("1999-01-01T05:00:00.000Z"),
-//     FavoriteMovies: [],
-//     __v: 0
-//   }
-// ]
-
-
-// [
-//   {
-//     _id: ObjectId("6409cc02e5324372aa179bba"),
-//     Title: 'The Shawshank Redemption',
-//     Description: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
-//     Genre: {
-//       Name: 'Drama',
-//       Description: 'A serious presentation of life or human situations that can be either fictional or based on real-life events'
-//     },
-//     Director: {
-//       Name: 'Frank Darabont',
-//       Bio: 'Frank Darabont is a Hungarian-American film director, screenwriter, and producer. He has been nominated for three Academy Awards and a Golden Globe Award for his work in the film industry.',
-//       Birth: 'January 28, 1959',
-//       Death: ''
-//     },
-//     ImagePath: 'https://m.media-amazon.com/images/I/51S4-izC4-L._AC_.jpg',
-//     Featured: true
-//   },
-//   {
-//     _id: ObjectId("6409cc04e5324372aa179bbb"),
-//     Title: 'The Godfather',
-//     Description: 'The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.',
-//     Genre: {
-//       Name: 'Crime',
-//       Description: 'A genre of film that focuses on the lives of criminals, usually gangsters, or members of organized crime syndicates.'
-//     },
-//     Director: {
-//       Name: 'Francis Ford Coppola',
-//       Bio: 'Francis Ford Coppola is an American film director, producer, and screenwriter. He is widely regarded as one of the greatest filmmakers in cinema history.',
-//       Birth: 'April 7, 1939',
-//       Death: ''
-//     },
-//     ImagePath: 'https://m.media-amazon.com/images/I/71f7VYDyinL._AC_SY741_.jpg',
-//     Featured: true
-//   },
-//   {
-//     _id: ObjectId("6409cc07e5324372aa179bbc"),
-//     Title: 'The Godfather: Part II',
-//     Description: 'The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.',
-//     Genre: {
-//       Name: 'Crime',
-//       Description: 'A genre of film that focuses on the lives of criminals, usually gangsters, or members of organized crime syndicates.'
-//     },
-//     Director: {
-//       Name: 'Francis Ford Coppola',
-//       Bio: 'Francis Ford Coppola is an American film director, producer, and screenwriter. He is widely regarded as one of the greatest filmmakers in cinema history.',
-//       Birth: 'April 7, 1939',
-//       Death: ''
-//     },
-//     ImagePath: 'https://m.media-amazon.com/images/I/61A8VqXQJvL._AC_SY741_.jpg',
-//     Featured: true
-//   },
-//   {
-//     _id: ObjectId("6409cc09e5324372aa179bbd"),
-//     Title: 'The Dark Knight',
-//     Description: 'When the menace known as The Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.',
-//     Genre: {
-//       Name: 'Action',
-//       Description: 'A film genre in which the protagonist or protagonists are thrust into a series of events that typically include violence, extended fighting, physical feats'
-//     },
-//     Director: {
-//       Name: 'Christopher Nolan',
-//       Bio: 'Christopher Nolan is a British-American film director, producer, and screenwriter. He is known for his films that often deal with complex and philosophical themes, nonlinear storytelling, and innovative use of practical effects.',
-//       Birth: 'July 30, 1970',
-//       Death: ''
-//     },
-//     ImagePath: 'https://m.media-amazon.com/images/I/51J1nk+lIxL._AC_.jpg',
-//     Featured: true
-//   },
-//   {
-//     _id: ObjectId("6409cc0be5324372aa179bbe"),
-//     Title: 'Fight Club',
-//     Description: 'An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.',
-//     Genre: {
-//       Name: 'Drama',
-//       Description: 'Films that explore and depict human social and emotional relationships and conflicts.'
-//     },
-//     Director: {
-//       Name: 'David Fincher',
-//       Bio: "David Fincher is an American film director and producer, known for his dark and stylish films, which often deal with themes such as alienation, identity, and obsession. He began his career directing music videos and commercials, before transitioning to feature films. Fincher is best known for directing critically acclaimed and commercially successful films such as 'Se7en' (1995), 'The Social Network' (2010), and 'Gone Girl' (2014).",
-//       Birth: 'August 28, 1962',
-//       Death: ''
-//     },
-//     ImagePath: 'https://m.media-amazon.com/images/M/MV5BMjA5NjgxNDgxN15BMl5BanBnXkFtZTYwMzY3OTI3._V1_SX300.jpg',
-//     Featured: false
-//   },
-//   {
-//     _id: ObjectId("6409cc0ee5324372aa179bbf"),
-//     Title: 'Inception',
-//     Description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.',
-//     Genre: {
-//       Name: 'Action',
-//       Description: 'Films that emphasize action sequences, adventure, and high energy, often with larger-than-life heroes and villains. Films that center around science fiction concepts or themes, often set in a futuristic or otherworldly environment.'
-//     },
-//     Director: {
-//       Name: 'Christopher Nolan',
-//       Bio: 'Christopher Nolan is a British-American film director, producer, and screenwriter. He is best known as the director of Memento (2000), The Dark Knight trilogy (2005–2012), and Inception (2010).',
-//       Birth: '30 July 1970',
-//       Death: ''
-//     },
-//     ImagePath: 'inception.jpg',
-//     Featured: true
-//   },
-//   {
-//     _id: ObjectId("6409cc12e5324372aa179bc0"),
-//     Title: 'The Lord of the Rings: The Return of the King',
-//     Description: "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
-//     Genre: {
-//       Name: 'Adventure',
-//       Description: 'A film that typically involves a journey or quest, with an emphasis on action and excitement.'
-//     },
-//     Director: {
-//       Name: 'Peter Jackson',
-//       Bio: 'Peter Jackson is a New Zealand film director, producer, and screenwriter. He is best known for his work on The Lord of the Rings and The Hobbit trilogies.',
-//       Birth: 'October 31, 1961',
-//       Death: ''
-//     },
-//     ImagePath: 'https://m.media-amazon.com/images/I/81nCzHP3EFL._AC_SY741_.jpg',
-//     Featured: true
-//   },
-//   {
-//     _id: ObjectId("6409cc14e5324372aa179bc1"),
-//     Title: 'Pulp Fiction',
-//     Description: 'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.',
-//     Genre: {
-//       Name: 'Crime',
-//       Description: 'A film that focuses on the criminal underworld or criminal activity.'
-//     },
-//     Director: {
-//       Name: 'Quentin Tarantino',
-//       Bio: 'Quentin Tarantino is an American film director, producer, and screenwriter. He is known for his unique style of filmmaking, which often includes nonlinear storytelling, references to popular culture, and graphic violence.',
-//       Birth: 'March 27, 1963',
-//       Death: ''
-//     },
-//     ImagePath: 'https://m.media-amazon.com/images/I/51v5ZpFyaFL._AC_SY741_.jpg',
-//     Featured: true
-//   },
-//   {
-//     _id: ObjectId("6409cc17e5324372aa179bc2"),
-//     Title: 'Forrest Gump',
-//     Description: 'The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other historical events unfold through the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.',
-//     Genre: {
-//       Name: 'Drama',
-//       Description: 'Films that center around an emotional story, often featuring a struggle against adversity. Films that center around a romantic relationship, often with a happy ending.'
-//     },
-//     Director: {
-//       Name: 'Robert Zemeckis',
-//       Bio: 'Robert Zemeckis is an American film director, producer, and screenwriter. He is best known as the director of the Back to the Future trilogy (1985–1990), Forrest Gump (1994), and Cast Away (2000).',
-//       Birth: '14 May 1952',
-//       Death: ''
-//     },
-//     ImagePath: 'forrest_gump.jpg',
-//     Featured: true
-//   },
-//   {
-//     _id: ObjectId("6409cc1ae5324372aa179bc3"),
-//     Title: 'The Lord of the Rings: The Fellowship of the Ring',
-//     Description: 'A meek hobbit of the Shire and eight companions set out on a journey to Mount Doom to destroy the One Ring and the dark lord Sauron.',
-//     Genre: {
-//       Name: 'Action',
-//       Description: 'Films that emphasize action sequences, adventure, and high energy, often with larger-than-life heroes and villains. Dramatic films that center around an emotional story, often featuring a struggle against adversity.'
-//     },
-//     Director: {
-//       Name: 'Peter Jackson',
-//       Bio: 'Peter Jackson is a New Zealand film director, producer, and screenwriter. He is best known as the director of The Lord of the Rings trilogy (2001–2003) and The Hobbit trilogy (2012–2014), both of which are adapted from the novels of the same name by J. R. R. Tolkien.',
-//       Birth: '31 October 1961',
-//       Death: ''
-//     },
-//     ImagePath: 'lord_of_the_rings_fellowship.jpg',
-//     Featured: true
-//   }
-// ]

@@ -21,10 +21,10 @@ let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
 
 app.use(cors({
   origin: (origin, callback) => {
-    if(!origin) return callback(null, true);
-    if(allowedOrigins.indexOf(origin) === -1){ // If a specific origin isn’t found on the list of allowed origins
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) { // If a specific origin isn’t found on the list of allowed origins
       let message = 'The CORS policy for this application doesn’t allow access from origin ' + origin;
-      return callback(new Error(message ), false);
+      return callback(new Error(message), false);
     }
     return callback(null, true);
   }
@@ -42,7 +42,7 @@ app.use(express.static('public'));
 const mongoose = require('mongoose');
 
 
-mongoose.connect( process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 //mongoose.connect('mongodb://localhost:27017/my_flix', { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -156,8 +156,8 @@ app.delete('/users/:Username', passport.authenticate('jwt', { session: false }),
 });
 
 //Allows new users to register
-app.post('/users',[
-  check('Username', 'Username is required').isLength({min: 5}),
+app.post('/users', [
+  check('Username', 'Username is required').isLength({ min: 5 }),
   check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
   check('Password', 'Password is required').not().isEmpty(),
   check('Email', 'Email does not appear to be valid').isEmail()
@@ -172,7 +172,7 @@ app.post('/users',[
   Users.findOne({ Username: req.body.Username }) // Search to see if a user with the requested username already exists
     .then((user) => {
       if (user) {
-      //If the user is found, send a response that it already exists
+        //If the user is found, send a response that it already exists
         return res.status(400).send(req.body.Username + ' already exists');
       } else {
         Users
@@ -197,7 +197,7 @@ app.post('/users',[
 
 
 //listens to http request and sends list of movies
-app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies', (req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(200).json(movies);
@@ -269,8 +269,8 @@ app.use((err, req, res, next) => {
 
 //listen request
 const port = process.env.PORT || 8080;
-app.listen(port, '0.0.0.0',() => {
- console.log('Listening on Port ' + port);
+app.listen(port, '0.0.0.0', () => {
+  console.log('Listening on Port ' + port);
 });
 
 
