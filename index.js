@@ -17,7 +17,7 @@ const uuid = require("uuid");
 
 //Import cors middleware for allowing requests from different domains(make sure before auth)
 const cors = require('cors');
-let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
+let allowedOrigins = ['http://localhost:1234', 'http://testsite.com'];
 
 app.use(cors({
   origin: (origin, callback) => {
