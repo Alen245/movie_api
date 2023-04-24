@@ -282,6 +282,5 @@ app.listen(port, '0.0.0.0', () => {
 
 /*
 mongoimport --uri mongodb+srv://akiyanovski24:Itay02042007h@moviepi24.v2rrasv.mongodb.net/myFlixDB --collection movies --type json --file /alenkiyanovski
-
 mongosh "mongodb+srv://moviepi24.v2rrasv.mongodb.net/my_flix" --apiVersion 1 --username akiyanovski24
 */
