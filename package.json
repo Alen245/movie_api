@@ -22,7 +22,5 @@
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
     "uuid": "^3.3.3"
-   
   }
-  
 }
