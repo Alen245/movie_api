@@ -17,7 +17,7 @@ const uuid = require("uuid");
 
 //Import cors middleware for allowing requests from different domains(make sure before auth)
 const cors = require('cors');
-let allowedOrigins = ['http://localhost:1234', 'http://localhost:52455'];
+let allowedOrigins = ['http://localhost:8080', 'http://testsite.com', 'http://localhost:1234', 'https://moviepi24.netlify.app'];
 
 app.use(cors({
   origin: (origin, callback) => {
