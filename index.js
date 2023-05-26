@@ -88,11 +88,12 @@ app.get('/users/:Username', passport.authenticate('jwt', { session: false }), (r
 
 app.put('/users/:Username', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
+    let hashedPassword = Users.hashPassword(req.body.Password);
     const updatedUser = await Users.findOneAndUpdate({ Username: req.params.Username }, {
       $set:
       {
         Username: req.body.Username,
-        Password: req.body.Password,
+        Password: hashedPassword,
         Email: req.body.Email,
         Birthday: req.body.Birthday
       }
