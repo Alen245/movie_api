@@ -17,7 +17,7 @@ const uuid = require("uuid");
 
 //Import cors middleware for allowing requests from different domains(make sure before auth)
 const cors = require('cors');
-let allowedOrigins = ['http://localhost:8080', 'https://moviepi24.netlify.app', 'http://localhost:1234', 'https://moviepi24.netlify.app'];
+let allowedOrigins = ['http://localhost:8080', 'https://moviepi24.netlify.app', 'http://localhost:1234', 'http://moviepi24.herokuapp.com'];
 
 app.use(cors({
   origin: (origin, callback) => {
