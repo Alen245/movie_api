@@ -29,7 +29,7 @@ app.use(cors({
     return callback(null, true);
   }
 }));
-app.use(cors())
+
 
 // Import and use passport middleware for authentication
 const passport = require('passport');
