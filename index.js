@@ -1,28 +1,30 @@
-// Import and initialize Express
+// Imports
 const express = require("express");
+const { check, validationResult } = require('express-validator');
+const morgan = require("morgan");
+const uuid = require("uuid");
+const cors = require('cors');
+const passport = require('passport');
+const mongoose = require('mongoose');
+const fs = require("fs");
+const path = require("path");
+const Models = require('./models.js');
+
+// Express app initialization
 const app = express();
 
-//Import express-validator
-const { check, validationResult } = require('express-validator');
-
-// Import and use bodyParser middleware for parsing request bodies
-const bodyParser = require("body-parser");
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// Import and use morgan middleware for logging HTTP requests
-const morgan = require("morgan");
+// Middleware setup
+app.use(express.json()); // This replaces `bodyParser.json()`
+app.use(express.urlencoded({ extended: true }));
 app.use(morgan('common'));
-const uuid = require("uuid");
+app.use(express.static('public'));
 
-//Import cors middleware for allowing requests from different domains(make sure before auth)
-const cors = require('cors');
+// CORS setup
 let allowedOrigins = ['http://localhost:8080', 'https://moviepi24.netlify.app', 'http://localhost:1234', 'http://moviepi24.herokuapp.com', 'http://localhost:4200'];
-
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) { // If a specific origin isn’t found on the list of allowed origins
+    if (allowedOrigins.indexOf(origin) === -1) {
       let message = 'The CORS policy for this application doesn’t allow access from origin ' + origin;
       return callback(new Error(message), false);
     }
@@ -30,25 +32,14 @@ app.use(cors({
   }
 }));
 
-
-// Import and use passport middleware for authentication
-const passport = require('passport');
+// Passport setup
 require('./passport');
 const auth = require('./auth')(app);
 
-// Import and use static middleware for serving static files
-app.use(express.static('public'));
-
-// Import and connect to MongoDB using Mongoose
-const mongoose = require('mongoose');
-
-
+// MongoDB connection
 mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
-//mongoose.connect('mongodb://localhost:27017/my_flix', { useNewUrlParser: true, useUnifiedTopology: true });
-
-// Import models for Movies and Users
-const Models = require('./models.js');
+// Models setup
 const Movies = Models.Movie;
 const Users = Models.User;
 
@@ -263,18 +254,17 @@ app.get('/movies/directors/:directorName', passport.authenticate('jwt', { sessio
 
 
 
-//error
+// Error handling
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Error!');
 });
 
-//listen request
+// Start server
 const port = process.env.PORT || 8080;
 app.listen(port, '0.0.0.0', () => {
   console.log('Listening on Port ' + port);
 });
-
 
 
 
