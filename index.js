@@ -20,7 +20,15 @@ app.use(morgan('common'));
 app.use(express.static('public'));
 
 // CORS setup
-let allowedOrigins = ['http://localhost:8080', 'https://moviepi24.netlify.app', 'http://localhost:1234', 'http://moviepi24.herokuapp.com', 'http://localhost:4200'];
+let allowedOrigins = [
+  'http://localhost:8080',
+  'https://moviepi24.netlify.app',
+  'http://localhost:1234',
+  'https://moviepi24.herokuapp.com',
+  'http://localhost:4200',
+  'https://alen245.github.io'
+];
+
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin) return callback(null, true);
