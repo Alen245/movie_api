@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('common'));
 
 // CORS middleware
-let allowedOrigins = ['http://localhost:8080', 'http://localhost:4200', 'https://moviepi24.netlify.app', 'http://localhost:1234', 'http://moviepi24.herokuapp.com'];
+let allowedOrigins = ['http://localhost:8080', 'http://localhost:4200', 'https://moviepi24.netlify.app', 'http://localhost:1234', 'https://moviepi24.herokuapp.com'];
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin) return callback(null, true);
