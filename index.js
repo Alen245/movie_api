@@ -1,32 +1,24 @@
-// 1. Imports
+// Import and initialize Express
 const express = require("express");
-const bodyParser = require("body-parser");
-const morgan = require("morgan");
-const cors = require('cors');
-const passport = require('passport');
-const mongoose = require('mongoose');
-const fs = require("fs");
-const path = require("path");
-const { check, validationResult } = require('express-validator');
-const uuid = require("uuid");
-require('express-async-errors');
-
-const Models = require('./models.js');
-const Movies = Models.Movie;
-const Users = Models.User;
-
-// 2. App & Middleware Initializations
 const app = express();
 
-// Body parser middleware
+//Import express-validator
+const { check, validationResult } = require('express-validator');
+
+// Import and use bodyParser middleware for parsing request bodies
+const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Morgan middleware for logging
+// Import and use morgan middleware for logging HTTP requests
+const morgan = require("morgan");
 app.use(morgan('common'));
+const uuid = require("uuid");
 
-// CORS middleware
-let allowedOrigins = ['http://localhost:8080', 'http://localhost:4200', 'https://moviepi24.netlify.app', 'http://localhost:1234', 'https://moviepi24.herokuapp.com'];
+//Import cors middleware for allowing requests from different domains(make sure before auth)
+const cors = require('cors');
+let allowedOrigins = ['http://localhost:8080', 'https://moviepi24.netlify.app', 'http://localhost:1234', 'http://moviepi24.herokuapp.com'];
+
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin) return callback(null, true);
@@ -37,16 +29,33 @@ app.use(cors({
     return callback(null, true);
   }
 }));
+app.use(cors())
 
-// Passport middleware
+// Import and use passport middleware for authentication
+const passport = require('passport');
 require('./passport');
 const auth = require('./auth')(app);
 
-// Serving static files
+// Import and use static middleware for serving static files
 app.use(express.static('public'));
 
-// 3. Database connection
+// Import and connect to MongoDB using Mongoose
+const mongoose = require('mongoose');
+
+
 mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+
+//mongoose.connect('mongodb://localhost:27017/my_flix', { useNewUrlParser: true, useUnifiedTopology: true });
+
+// Import models for Movies and Users
+const Models = require('./models.js');
+const Movies = Models.Movie;
+const Users = Models.User;
+
+// Import and use fs and path modules for working with files
+const fs = require("fs");
+const path = require("path");
+
 
 //sends introduction
 app.get('/', (req, res) => {
@@ -254,24 +263,10 @@ app.get('/movies/directors/:directorName', passport.authenticate('jwt', { sessio
 
 
 
-// Error handling middleware
+//error
 app.use((err, req, res, next) => {
   console.error(err.stack);
-
-  if (process.env.NODE_ENV === 'development') {
-    // In development, we can send a detailed error message
-    res.status(500).json({
-      status: 'error',
-      message: err.message,
-      stack: err.stack
-    });
-  } else {
-    // In production, send a more generic message
-    res.status(500).json({
-      status: 'error',
-      message: 'Internal Server Error'
-    });
-  }
+  res.status(500).send('Error!');
 });
 
 //listen request
